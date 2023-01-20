@@ -1,0 +1,617 @@
+Vai al contenuto principale
+Esami
+Italiano ‎(it)‎
+Michelutti Massimo
+Advanced Programming [146125] - PATRIGNANI
+Dashboard
+I miei corsi
+Dipartimento di Ingegneria e Scienza dell'Informazione
+Advanced Programming [146125] - PATRIGNANI
+Midterms
+Midterm 2
+Tempo rimasto 1:29:54
+Domanda 1
+Risposta mancante
+Punteggio max.: 2,00
+Contrassegna domanda
+Testo della domanda
+define the Nextable trait with a method `gimme_next`
+implement Doublable for i32, `gimme_next` returns the optional successor of self
+implement Doublable for char, `gimme_next` returns the optional new char that is the next char (as a u32 conversion)
+implement a function `printnext` that takes a `Nextable`
+and prints the argument and its `gimme_next` using the ":?" formatter
+     It behaves as the example:
+    next of 5 is Some(6)
+    next of 's' is Some('t')
+
+For example:
+
+Test	Result
+pub fn main() {
+        let x = 5;
+        printnext(x);
+        let s = 's';
+        printnext(s);
+    }
+next of 5 is Some(6)
+next of 's' is Some('t')
+pub fn main() {
+        let x = 11;
+        printnext(x);
+        let s = 'f';
+        printnext(s);
+    }
+next of 11 is Some(12)
+next of 'f' is Some('g')
+Answer:(penalty regime: 0 %)
+Ace editor not ready. Perhaps reload page?
+Falling back to raw text area.
+Domanda 2
+Risposta mancante
+Punteggio max.: 2,00
+Contrassegna domanda
+Testo della domanda
+Define a struct `Wrapper` that contains a field `v` of type `Vec<i32>`
+define an iterator for `Wrapper` to cycle over the elements of the vector
+the iterator will skip every other element, effectively accessing only those
+at even index in the inner vector (the first element is at index 0)
+
+For example:
+
+Test	Result
+    pub fn main(){
+        let w = Wrapper{v:vec![1,2,3,4,5,6,7,8]};
+        let mut iw = w.iter();
+        println!("first: {}",iw.next().unwrap());
+        for el in iw{
+            println!("evens: {}",el);
+        }
+    }
+first: 1
+evens: 3
+evens: 5
+evens: 7
+    pub fn main(){
+        let w = Wrapper{v:vec![11,12,13,14,15,16,17,18]};
+        let mut iw = w.iter();
+        println!("first: {}",iw.next().unwrap());
+        for el in iw{
+            println!("evens: {}",el);
+        }
+    }
+first: 11
+evens: 13
+evens: 15
+evens: 17
+Answer:(penalty regime: 0 %)
+Ace editor not ready. Perhaps reload page?
+Falling back to raw text area.
+Domanda 3
+Risposta mancante
+Punteggio max.: 2,00
+Contrassegna domanda
+Testo della domanda
+write a function `basicbox_sum` that takes a vector of Strings and returns a vector of Boxes of usizes
+the returned vector contains all the lengths of the input vector followed by a final element that sums all the
+previous lengths
+
+For example:
+
+Test	Result
+        pub fn main() {
+            let s = vec!["asd".to_string(), "where".to_string(), "what".to_string()];
+            println!("boxed s: {:?}", basicbox_sum(s));
+        }
+boxed s: [3, 5, 4, 12]
+        pub fn main() {
+            let s = vec!["nope".to_string(), "game".to_string(), "bananas".to_string()];
+            println!("boxed s: {:?}", basicbox_sum(s));
+        }
+boxed s: [4, 4, 7, 15]
+Answer:(penalty regime: 0 %)
+Ace editor not ready. Perhaps reload page?
+Falling back to raw text area.
+Domanda 4
+Risposta mancante
+Punteggio max.: 15,00
+Contrassegna domanda
+Testo della domanda
+take the following `List` and `Node` structs
+define these functions and methods for `List`, each one defines how many points it yields
+    - [0.5] new: returns an empty list
+    - [0.5] size: returns the i32 length of the list
+    - [6] add: takes an element `e:T` and a position `p:i32` where to insert the element in the list
+        and it returns a Result<(),String>
+        The function inserts the element `e` at position `p` or returns the Err string "wrong position" if
+        the list has fewer than `p` elements. That is:
+            adding `16` at position `2` to `[10,20,30]` will return `[10,20,16,30]`.
+            adding `16` at position `3` to `[10,20,30]` will return `[10,20,30,16]`.
+            adding `16` at position `4` to `[10,20,30]` will return `[10,20,30]`.
+    - [2] prepend: takes an element `e:T` and adds it at the head of the list
+    - [2] append: takes an element `e:T` and adds it as the last element of the list
+    - [4] get: takes a position `p` and returns an optional pointer to the `p`th T-typed element in the list
+         (That is, a pointer to the element, not a pointer to the Node)
+Note: the tests already include the code below, all you need to paste as the answer are the `impl` blocks
+and possible imports (use ...).
+#[derive(Debug)]
+pub struct List<T> {
+    head: Link<T>,
+    len: i32,
+}
+type Link<T> = Option<Box<Node<T>>>;
+#[derive(Debug)]
+struct Node<T> {
+    elem: T,
+    next: Link<T>,
+}
+#[derive(Debug)]
+    pub struct Content {
+        s : String, b : bool, i : i32,
+    }
+    impl Content {
+        pub fn new_with(s:String, b:bool, i:i32) -> Content {
+            return Content{s,b,i};
+        }
+    }
+
+
+
+
+For example:
+
+Test	Result
+#[derive(Debug)]
+    pub struct List<T> {
+        head: Link<T>,
+        len: i32,
+    }
+    type Link<T> = Option<Box<Node<T>>>;
+    #[derive(Debug)]
+    struct Node<T> {
+        elem: T,
+        next: Link<T>,
+    }
+
+#[derive(Debug)]
+    pub struct Content {
+        s : String, b : bool, i : i32,
+    }
+    impl Content {
+        pub fn new_with(s:String, b:bool, i:i32) -> Content {
+            return Content{s,b,i};
+        }
+    }
+
+        pub fn main(){
+            let l : List<i32> = List::new();
+            println!("{:?}",l);
+            assert_eq!(l.size(),0);
+            let l = List{ head: Some(Box::new(Node{ elem: 4, next: None })), len: 1 };
+            assert_eq!(l.size(),1);
+            let s : String = format!("{:?}",l);
+            assert_eq!(s.contains("Vec"),false);
+        }
+List { head: None, len: 0 }
+#[derive(Debug)]
+    pub struct List<T> {
+        head: Link<T>,
+        len: i32,
+    }
+    type Link<T> = Option<Box<Node<T>>>;
+    #[derive(Debug)]
+    struct Node<T> {
+        elem: T,
+        next: Link<T>,
+    }
+
+#[derive(Debug)]
+    pub struct Content {
+        s : String, b : bool, i : i32,
+    }
+    impl Content {
+        pub fn new_with(s:String, b:bool, i:i32) -> Content {
+            return Content{s,b,i};
+        }
+    }
+
+        pub fn main(){
+            let l : List<i32> = List::new();
+            println!("{:?}",l);
+            assert_eq!(l.get(0),None);
+            assert_eq!(l.get(1),None);
+            let l = List{ head: Some(Box::new(Node{ elem: 4, next: None })), len: 1 };
+            assert_eq!(l.get(0),Some(&4));
+            let s : String = format!("{:?}",l);
+            assert_eq!(s.contains("Vec"),false);
+        }
+List { head: None, len: 0 }
+#[derive(Debug)]
+    pub struct List<T> {
+        head: Link<T>,
+        len: i32,
+    }
+    type Link<T> = Option<Box<Node<T>>>;
+    #[derive(Debug)]
+    struct Node<T> {
+        elem: T,
+        next: Link<T>,
+    }
+
+#[derive(Debug)]
+    pub struct Content {
+        s : String, b : bool, i : i32,
+    }
+    impl Content {
+        pub fn new_with(s:String, b:bool, i:i32) -> Content {
+            return Content{s,b,i};
+        }
+    }
+
+       pub fn main(){
+            let elem0 = Content::new_with("test".to_string(),true,2);
+            let elem1 = Content::new_with("what".to_string(),true,2);
+            let elem2 = Content::new_with("this".to_string(),false,8);
+            let elem3 = Content::new_with("dope".to_string(),true,18);
+            let mut l : List<Content> = List::new();
+            println!("{:?}",l.add(elem0,1));
+            println!("{:?}",l);
+            l.add(elem1,0);
+            println!("{:?}",l);
+            l.add(elem2,1);
+            println!("{:?}",l);
+            l.add(elem3,2);
+            println!("{:?}",l);
+            let elem4 = Content::new_with("nope".to_string(),false,1);
+            l.add(elem4,4);
+            println!("{:?}",l);
+            let s : String = format!("{:?}",l);
+            assert_eq!(s.contains("Vec"),false);
+        }
+Err("wrong position")
+List { head: None, len: 0 }
+List { head: Some(Node { elem: Content { s: "what", b: true, i: 2 }, next: None }), len: 1 }
+List { head: Some(Node { elem: Content { s: "what", b: true, i: 2 }, next: Some(Node { elem: Content { s: "this", b: false, i: 8 }, next: None }) }), len: 2 }
+List { head: Some(Node { elem: Content { s: "what", b: true, i: 2 }, next: Some(Node { elem: Content { s: "this", b: false, i: 8 }, next: Some(Node { elem: Content { s: "dope", b: true, i: 18 }, next: None }) }) }), len: 3 }
+List { head: Some(Node { elem: Content { s: "what", b: true, i: 2 }, next: Some(Node { elem: Content { s: "this", b: false, i: 8 }, next: Some(Node { elem: Content { s: "dope", b: true, i: 18 }, next: None }) }) }), len: 3 }
+#[derive(Debug)]
+    pub struct List<T> {
+        head: Link<T>,
+        len: i32,
+    }
+    type Link<T> = Option<Box<Node<T>>>;
+    #[derive(Debug)]
+    struct Node<T> {
+        elem: T,
+        next: Link<T>,
+    }
+
+#[derive(Debug)]
+    pub struct Content {
+        s : String, b : bool, i : i32,
+    }
+    impl Content {
+        pub fn new_with(s:String, b:bool, i:i32) -> Content {
+            return Content{s,b,i};
+        }
+    }
+
+       pub fn main(){
+            let elem0 = Content::new_with("test".to_string(),true,2);
+            let elem1 = Content::new_with("what".to_string(),true,2);
+            let elem2 = Content::new_with("this".to_string(),false,8);
+            let elem3 = Content::new_with("dope".to_string(),true,18);
+            let mut l : List<Content> = List::new();
+            l.prepend(elem0);
+            println!("{:?}",l);
+            l.prepend(elem1);
+            println!("{:?}",l);
+            l.prepend(elem2);
+            println!("{:?}",l);
+            let s : String = format!("{:?}",l);
+            assert_eq!(s.contains("Vec"),false);
+        }
+List { head: Some(Node { elem: Content { s: "test", b: true, i: 2 }, next: None }), len: 1 }
+List { head: Some(Node { elem: Content { s: "what", b: true, i: 2 }, next: Some(Node { elem: Content { s: "test", b: true, i: 2 }, next: None }) }), len: 2 }
+List { head: Some(Node { elem: Content { s: "this", b: false, i: 8 }, next: Some(Node { elem: Content { s: "what", b: true, i: 2 }, next: Some(Node { elem: Content { s: "test", b: true, i: 2 }, next: None }) }) }), len: 3 }
+#[derive(Debug)]
+    pub struct List<T> {
+        head: Link<T>,
+        len: i32,
+    }
+    type Link<T> = Option<Box<Node<T>>>;
+    #[derive(Debug)]
+    struct Node<T> {
+        elem: T,
+        next: Link<T>,
+    }
+
+#[derive(Debug)]
+    pub struct Content {
+        s : String, b : bool, i : i32,
+    }
+    impl Content {
+        pub fn new_with(s:String, b:bool, i:i32) -> Content {
+            return Content{s,b,i};
+        }
+    }
+
+        pub fn main(){
+            let elem0 = Content::new_with("test".to_string(),true,2);
+            let elem1 = Content::new_with("what".to_string(),true,2);
+            let elem2 = Content::new_with("this".to_string(),false,8);
+            let elem3 = Content::new_with("dope".to_string(),true,18);
+            let mut l : List<Content> = List::new();
+            l.append(elem0);
+            println!("{:?}",l);
+            l.append(elem1);
+            println!("{:?}",l);
+            l.append(elem2);
+            println!("{:?}",l);
+            let s : String = format!("{:?}",l);
+            assert_eq!(s.contains("Vec"),false);
+        }
+
+List { head: Some(Node { elem: Content { s: "test", b: true, i: 2 }, next: None }), len: 1 }
+List { head: Some(Node { elem: Content { s: "test", b: true, i: 2 }, next: Some(Node { elem: Content { s: "what", b: true, i: 2 }, next: None }) }), len: 2 }
+List { head: Some(Node { elem: Content { s: "test", b: true, i: 2 }, next: Some(Node { elem: Content { s: "what", b: true, i: 2 }, next: Some(Node { elem: Content { s: "this", b: false, i: 8 }, next: None }) }) }), len: 3 }
+Answer:(penalty regime: 0 %)
+Ace editor not ready. Perhaps reload page?
+Falling back to raw text area.
+Domanda 5
+Risposta mancante
+Punteggio max.: 10,00
+Contrassegna domanda
+Testo della domanda
+SameBool is a Trait
+It has a method `samebool` that takes a SameBool and it returns a bool
+
+Content is a struct with an i32 and a bool
+Two Contents can be compared (<, >, ==) by comparing their i32 field ([2 points])
+Content implements SameBool: the method of the trait returns
+    whether `self` has the same bool as the parameter ([1] point)
+
+Define a Graph as a vector of Nodes whose elements are arbitrary T
+    - add a function for creating an empty graph ([1] points)
+When T implements `SameBool` and `PartialOrd`,
+    define function `add_node` that adds a Node to the graph with these connections:
+    - the added node gets as neighbour all nodes in the graph that are < than it
+    - the added node becomes a neighbour of all the nodes with the `samebool`
+    ([6] points)
+
+Note: the tests already include the code below, all you need to paste as the answer are the `impl` blocks
+and possible imports (use ... ).
+   type NodeRef<T> = Rc<RefCell<Node<T>>>;
+    struct Node<T> {
+        inner_value: T,
+        adjacent: Vec<NodeRef<T>>,
+    }
+impl<T:Debug> Debug for Node<T>{
+    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+        write!(f,"iv: {:?}, adj: {}", self.inner_value, self.adjacent.len())
+    }
+}
+    struct Graph<T> {
+        nodes: Vec<NodeRef<T>>,
+    }
+    pub trait SameBool{
+        fn samebool(&self, other:&Self)->bool;
+    }
+   #[derive(Debug)]
+    pub struct Content{
+        pub i:i32,
+        pub b:bool
+    }
+    impl Content {
+         pub fn new_with(i: i32, b: bool) -> Content {
+             Content { i, b }
+         }
+     }
+
+For example:
+
+Test	Result
+    pub trait SameBool{
+        fn samebool(&self, other:&Self)->bool;
+    }
+    #[derive(Debug)]
+    pub struct Content{
+        pub i:i32,
+        pub b:bool
+    }
+    impl Content {
+        pub fn new_with(i: i32, b: bool) -> Content {
+            Content { i, b }
+        }
+    }
+    type NodeRef<T> = Rc<RefCell<Node<T>>>;
+    struct Node<T> {
+        inner_value: T,
+        adjacent: Vec<NodeRef<T>>,
+    }
+    impl<T:Debug> Debug for Node<T>{
+        fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+            write!(f,"iv: {:?}, adj: {}", self.inner_value, self.adjacent.len())
+        }
+    }
+    #[derive(Debug)]
+    struct Graph<T> {
+        nodes: Vec<NodeRef<T>>,
+    }
+
+
+pub fn main(){
+            let mut el1 = Content{i:10, b:true};
+            let mut el2 = Content{i:11, b:true};
+            let mut el3 = Content{i:11, b:false};
+            assert_eq!(el1<el2,true);
+            assert_eq!(el2<el1,false);
+            assert_eq!(el2==el3,true);
+        }
+    pub trait SameBool{
+        fn samebool(&self, other:&Self)->bool;
+    }
+    #[derive(Debug)]
+    pub struct Content{
+        pub i:i32,
+        pub b:bool
+    }
+    impl Content {
+        pub fn new_with(i: i32, b: bool) -> Content {
+            Content { i, b }
+        }
+    }
+    type NodeRef<T> = Rc<RefCell<Node<T>>>;
+    struct Node<T> {
+        inner_value: T,
+        adjacent: Vec<NodeRef<T>>,
+    }
+    impl<T:Debug> Debug for Node<T>{
+        fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+            write!(f,"iv: {:?}, adj: {}", self.inner_value, self.adjacent.len())
+        }
+    }
+    #[derive(Debug)]
+    struct Graph<T> {
+        nodes: Vec<NodeRef<T>>,
+    }
+
+pub fn main(){
+            let mut el1 = Content{i:10, b:true};
+            let mut el2 = Content{i:11, b:true};
+            let mut el3 = Content{i:11, b:false};
+            assert_eq!(el1.samebool(&el2), true);
+            assert_eq!(el1.samebool(&el3), false);
+        }
+    pub trait SameBool{
+        fn samebool(&self, other:&Self)->bool;
+    }
+    #[derive(Debug)]
+    pub struct Content{
+        pub i:i32,
+        pub b:bool
+    }
+    impl Content {
+        pub fn new_with(i: i32, b: bool) -> Content {
+            Content { i, b }
+        }
+    }
+    type NodeRef<T> = Rc<RefCell<Node<T>>>;
+    struct Node<T> {
+        inner_value: T,
+        adjacent: Vec<NodeRef<T>>,
+    }
+    impl<T:Debug> Debug for Node<T>{
+        fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+            write!(f,"iv: {:?}, adj: {}", self.inner_value, self.adjacent.len())
+        }
+    }
+    #[derive(Debug)]
+    struct Graph<T> {
+        nodes: Vec<NodeRef<T>>,
+    }
+
+pub fn main() {
+            let mut g : Graph<Content> = Graph::new();
+            println!("{:?}",g);
+        }
+Graph { nodes: [] }
+    pub trait SameBool{
+        fn samebool(&self, other:&Self)->bool;
+    }
+    #[derive(Debug)]
+    pub struct Content{
+        pub i:i32,
+        pub b:bool
+    }
+    impl Content {
+        pub fn new_with(i: i32, b: bool) -> Content {
+            Content { i, b }
+        }
+    }
+    type NodeRef<T> = Rc<RefCell<Node<T>>>;
+    struct Node<T> {
+        inner_value: T,
+        adjacent: Vec<NodeRef<T>>,
+    }
+
+    impl<T:Debug> Debug for Node<T>{
+        fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+            write!(f,"iv: {:?}, adj: {}", self.inner_value, self.adjacent.len())
+        }
+    }
+    #[derive(Debug)]
+    struct Graph<T> {
+        nodes: Vec<NodeRef<T>>,
+    }
+
+pub fn main(){
+        let mut el1 = Content{i:10, b:true};
+        let mut el2 = Content{i:11, b:true};
+        let mut el3 = Content{i:12, b:false};
+        let mut g = Graph::new();
+        println!("{:?}",g);
+        g.add_node(el1);
+        println!("{:?}",g);
+        g.add_node(el2);
+        println!("{:?}",g);
+        g.add_node(el3);
+        println!("{:?}",g);
+
+        let mut el1 = Content{i:10, b:true};
+        let mut el2 = Content{i:8, b:false};
+        let mut g = Graph::new();
+        println!("{:?}",g);
+        g.add_node(el1);
+        println!("{:?}",g);
+        g.add_node(el2);
+        println!("{:?}",g);
+
+        let mut el1 = Content{i:10, b:true};
+        let mut el2 = Content{i:11, b:true};
+        let mut el3 = Content{i:12, b:true};
+        let mut g = Graph::new();
+        println!("{:?}",g);
+        g.add_node(el1);
+        println!("{:?}",g);
+        g.add_node(el2);
+        println!("{:?}",g);
+        g.add_node(el3);
+        println!("{:?}",g);
+
+        let mut el1 = Content{i:10, b:true};
+        let mut el2 = Content{i:9, b:false};
+        let mut el3 = Content{i:8, b:true};
+        let mut g = Graph::new();
+        println!("{:?}",g);
+        g.add_node(el1);
+        println!("{:?}",g);
+        g.add_node(el2);
+        println!("{:?}",g);
+        g.add_node(el3);
+        println!("{:?}",g);
+    }
+Graph { nodes: [] }
+Graph { nodes: [RefCell { value: iv: Content { i: 10, b: true }, adj: 0 }] }
+Graph { nodes: [RefCell { value: iv: Content { i: 10, b: true }, adj: 1 }, RefCell { value: iv: Content { i: 11, b: true }, adj: 1 }] }
+Graph { nodes: [RefCell { value: iv: Content { i: 10, b: true }, adj: 1 }, RefCell { value: iv: Content { i: 11, b: true }, adj: 1 }, RefCell { value: iv: Content { i: 12, b: false }, adj: 2 }] }
+Graph { nodes: [] }
+Graph { nodes: [RefCell { value: iv: Content { i: 10, b: true }, adj: 0 }] }
+Graph { nodes: [RefCell { value: iv: Content { i: 10, b: true }, adj: 0 }, RefCell { value: iv: Content { i: 8, b: false }, adj: 0 }] }
+Graph { nodes: [] }
+Graph { nodes: [RefCell { value: iv: Content { i: 10, b: true }, adj: 0 }] }
+Graph { nodes: [RefCell { value: iv: Content { i: 10, b: true }, adj: 1 }, RefCell { value: iv: Content { i: 11, b: true }, adj: 1 }] }
+Graph { nodes: [RefCell { value: iv: Content { i: 10, b: true }, adj: 2 }, RefCell { value: iv: Content { i: 11, b: true }, adj: 2 }, RefCell { value: iv: Content { i: 12, b: true }, adj: 2 }] }
+Graph { nodes: [] }
+Graph { nodes: [RefCell { value: iv: Content { i: 10, b: true }, adj: 0 }] }
+Graph { nodes: [RefCell { value: iv: Content { i: 10, b: true }, adj: 0 }, RefCell { value: iv: Content { i: 9, b: false }, adj: 0 }] }
+Graph { nodes: [RefCell { value: iv: Content { i: 10, b: true }, adj: 1 }, RefCell { value: iv: Content { i: 9, b: false }, adj: 0 }, RefCell { value: iv: Content { i: 8, b: true }, adj: 0 }] }
+Answer:(penalty regime: 0 %)
+Ace editor not ready. Perhaps reload page?
+Falling back to raw text area.
+Vai a...
+Vai a...
+Salta Navigazione quiz
+Navigazione quiz
+
+Michelutti Massimo
+Termina il tentativo...
